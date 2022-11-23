@@ -34,9 +34,3 @@ RUN ln -s /usr/bin/ninja /usr/local/bin/ninja
 
 ENV CC=/usr/bin/clang
 ENV CXX=/usr/bin/clang++
-
-# 
-# Prepare build scripts
-# 
-
-CMD chmod +x /home/work/scripts/*
