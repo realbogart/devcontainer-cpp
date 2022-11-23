@@ -13,6 +13,8 @@ RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 # 
 
 RUN add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+RUN wget https://apt.llvm.org/llvm-snapshot.gpg.key
+RUN apt-key add llvm-snapshot.gpg.key
 RUN apt update
 
 # 
