@@ -4,8 +4,7 @@ FROM debian:bookworm-slim
 # Install latest clang
 # 
 
-RUN apt update && apt upgrade -y
-RUN apt install -y lsb-release wget software-properties-common gnupg2
+RUN apt update && apt upgrade -y && apt install -y lsb-release wget software-properties-common gnupg
 RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
 # 
@@ -15,13 +14,12 @@ RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 RUN add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
 RUN wget https://apt.llvm.org/llvm-snapshot.gpg.key
 RUN apt-key add llvm-snapshot.gpg.key
-RUN apt update
 
 # 
 # Install other dependencies
 # 
 
-RUN apt install -y pip cmake git ninja-build clang-format
+RUN apt update && apt install -y pip cmake git ninja-build clang-format
 RUN pip3 install conan
 
 # 
